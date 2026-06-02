@@ -12,6 +12,12 @@ public class Contact
 
     public Contact(string name, string phoneNumber, string email)
     {
+        Adjust(name, phoneNumber, email);
+        Id = Guid.NewGuid();
+
+    }
+    public void Adjust(string name, string phoneNumber, string email)
+    {
         if (string.IsNullOrWhiteSpace(name))
         {
             throw new Exception("Naam mag niet leeg zijn");
@@ -19,7 +25,5 @@ public class Contact
         Name = name;
         PhoneNumber = phoneNumber;
         Email = email;
-        Id = Guid.NewGuid();
-
     }
 }

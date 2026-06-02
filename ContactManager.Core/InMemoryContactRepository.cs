@@ -1,6 +1,6 @@
 using ContactManager.Core;
 
-public class MemoryRepository
+public class InMemoryContactRepository
 {
     private List<Contact> contactList = [];
     public IReadOnlyList<Contact> GetAllContacts()
@@ -11,5 +11,9 @@ public class MemoryRepository
     public void AddContact(Contact contact)
     {
         contactList.Add(contact);
+    }
+    public void RemoveContact(Contact contact)
+    {
+        contactList.Remove(contact);
     }
 }
