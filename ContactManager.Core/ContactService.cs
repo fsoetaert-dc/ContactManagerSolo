@@ -8,18 +8,18 @@ public class ContactService
         _repo = repo;
     }
 
-    private void AddContact(string name, string phoneNumber, string email)
+    public void AddContact(string name, string phoneNumber, string email)
     {
         var c = new Contact(name, phoneNumber, email);
         _repo.AddContact(c);
     }
 
-    private IReadOnlyList<Contact> GetAll()
+    public IReadOnlyList<Contact> GetAll()
     {
         return _repo.GetAllContacts();
     }
 
-    private Contact SearchContactById(Guid id)
+    public Contact SearchContactById(Guid id)
     {
         var c = _repo.GetAllContacts().Where(c => c.Id == id);
         if (c.Count() < 1)
@@ -28,7 +28,7 @@ public class ContactService
         }
         return c.Single();
     }
-    private List<Contact> SearchContactByName(string name)
+    public List<Contact> SearchContactByName(string name)
     {
         var c = _repo.GetAllContacts().Where(c => c.Name.ToLower().StartsWith(name.ToLower())).ToList();
         if (c.Count() < 1)
@@ -37,12 +37,12 @@ public class ContactService
         }
         return c;
     }
-    private void Adjust(Guid id, string name, string phoneNumber, string email)
+    public void Adjust(Guid id, string name, string phoneNumber, string email)
     {
         var c = SearchContactById(id);
         c.Adjust(name, phoneNumber, email);
     }
-    private void RemoveContact(Guid id)
+    public void RemoveContact(Guid id)
     {
         var c = SearchContactById(id);
         _repo.RemoveContact(c);
