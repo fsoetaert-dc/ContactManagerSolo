@@ -47,4 +47,25 @@ public class ContactService
         var c = SearchContactById(id);
         _repo.RemoveContact(c);
     }
+
+    public Guid IsIdGuid(string id)
+    {
+        if (Guid.TryParse(id, out Guid g))
+        {
+            return g;
+        }
+        throw new Exception("Geen geldige Id");
+    }
+
+    public string isNameValid(string name)
+    {
+        foreach (var l in name)
+        {
+            if (!char.IsLetter(l))
+            {
+                throw new Exception("Geen geldige naam");
+            }
+        }
+        return name;
+    }
 }
