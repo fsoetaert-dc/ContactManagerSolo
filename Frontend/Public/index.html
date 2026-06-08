@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="menu">
+        <h2>Menu</h2>
+        <button id="addContactButton">Contact toevoegen</button><br>
+        <button id="contactListButton">Toon contactenlijst</button><br>
+        <button id="editContactButton">Contact aanpassen</button><br>
+        <button id="deleteContactButton">Contact verwijderen</button><br>
+        <button id="searchContactButton">Contact zoeken</button><br>
+    </div>
+    <div id="addContactPopup">
+        <h3>Contact Toevoegen</h3>
+        <label for="nameLabelAdd">Naam: </label>
+        <input id="nameInputAdd" type="text" placeholder="First name Last name" required><br>
+        <label for="telLabelAdd">Telefoon: </label>
+        <input id="telInputAdd" type="text" placeholder="XXXXXXXXXX" required><br>
+        <label for="emailLabelAdd">E-mail: </label>
+        <input id="emailInputAdd" type="text" placeholder="user@smt.com" required><br>
+        <button id="createContactButton">Contact aanmaken</button>
+        <button id="cancelAddContactButton">Annuleren</button>
+    </div>
+    <div id="addContactConfirmationPopup">
+        Contact Toegevoegd
+        <button id="addContactOKButton">OK</button>
+    </div>
+    <div id="contactListPopup">
+        <h3>Contactenlijst</h3>
+        <button id="closeContactListButton">Terug naar Menu</button>
+    </div>
+    <div id="editContactSearchPopup">
+        <h3>Contact Aanpassen</h3>
+        <label for="IDLabelSearchEdit">Op ID zoeken: </label>
+        <input id="IDInputSearchEdit" type="text" placeholder="ID"><br>
+        <label for="nameLabelSearchEdit">Op naam zoeken: </label>
+        <input id="nameInputSearchEdit" type="text" placeholder="First name Last name">
+        <button id="searchContactButtonEdit">Contact Zoeken</button>
+        <button id="cancelSearchContactButtonEdit">Annuleren</button>
+    </div>
+    <div id="editContactPopup">
+        <h3>Contact Aanpassen</h3>
+        <label for="nameLabelEdit">Naam: </label>
+        <input id="nameInputEdit" type="text" placeholder="First name Last name"><br>
+        <label for="telLabelEdit">Telefoonnummer: </label>
+        <input id="telInputEdit" type="text" placeholder="XXXXXXXXXX"><br>
+        <label for="emailLabelEdit">E-mail: </label>
+        <input id="emailInputEdit" type="text" placeholder="user@smt.com"><br>
+        <button id="editContactButtonEdit">Contact Aanpassen</button>
+        <button id="cancelEditContactButton">Annuleren</button>
+    </div>
+    <div id="editContactConfirmationPopup">
+        Contact aangepast
+        <button id="editContactOKButton">OK</button>
+    </div>
+    <div id="deleteContactPopup">
+        <h3>Contact Verwijderen</h3>
+        <label for="IDLabelSearchDelete">Op ID zoeken: </label>
+        <input id="IDInputSearchDelete" type="text" placeholder="ID">
+        <button id="deleteContactButtonDelete">Contact Verwijderen</button>
+        <button id="cancelDeleteContactButton">Annuleren</button>
+    </div>
+    <div id="deleteContactConfirmationPopup">
+        Contact verwijderd
+        <button id="deleteContactOKButton">OK</button>
+    </div>
+    <div id="searchContactPopup">
+        <h3>Contact Zoeken</h3>
+        <label for="IDLabelSearchSearch">Op naam zoeken: </label>
+        <input id="IDInputSearchSearch" type="text" placeholder="ID"><br>
+        <button id="searchContactButtonSearch">Contact Zoeken</button>
+        <button id="cancelSearchContactButtonSearch">Annuleren</button>
+    </div>
+    <div id="foundContactPopup">
+        <h3>Gevonden Contacten</h3>
+        <button id="closeFoundContactButton">Terug naar Menu</button>
+    </div>
+</body>
+
+<script type="module" src="src/main.js"></script>

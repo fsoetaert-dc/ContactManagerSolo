@@ -47,4 +47,6 @@ public class ContactService
         var c = SearchContactById(id);
         _repo.RemoveContact(c);
     }
+
+    
 }

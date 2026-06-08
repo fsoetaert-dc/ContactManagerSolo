@@ -33,7 +33,7 @@ public class Menu
         {
             if (!char.IsLetter(l))
             {
-                throw new Exception("geen ")
+                throw new Exception("geen ");
             }
         }
         console.WriteLine("Telefoonnummer: ");
