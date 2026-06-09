@@ -1,4 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
 using ContactManager.Core;
 
 public class DTOContact(Contact contact)

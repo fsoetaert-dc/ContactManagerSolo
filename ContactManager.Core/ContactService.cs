@@ -8,10 +8,11 @@ public class ContactService
         _repo = repo;
     }
 
-    public void AddContact(string name, string phoneNumber, string email)
+    public ContactResponse AddContact(string name, string phoneNumber, string email)
     {
         var c = new Contact(name, phoneNumber, email);
         _repo.AddContact(c);
+        return new ContactResponse { Id = c.Id, Name = c.Name, PhoneNumber = c.PhoneNumber, Email = c.Email };
     }
 
     public IReadOnlyList<Contact> GetAll()
