@@ -1,3 +1,4 @@
+using System.Net;
 using System.Xml.Serialization;
 using ContactManager.Core;
 using Microsoft.AspNetCore.Mvc;
@@ -44,14 +45,26 @@ public class ContactController : ControllerBase
     [HttpGet("search")] //search by id
     public IEnumerable<ContactResponse> SearchByName(string name)
     {
-        return service.SearchContactByName(name).Select(contact => new ContactResponse
+        try
         {
-            Id = contact.Id,
-            Name = contact.Name,
-            PhoneNumber = contact.PhoneNumber,
-            Email = contact.Email
-        });
+            return service.SearchContactByName(name).Select(contact => new ContactResponse
+            {
+                Id = contact.Id,
+                Name = contact.Name,
+                PhoneNumber = contact.PhoneNumber,
+                Email = contact.Email
+            });
+        }
+        catch (Exception)
+        {
+            Response.StatusCode = (int)HttpStatusCode.NotFound;
+            return [];
+        }
     }
 
-
+    [HttpPut("{id:Guid}")] //adjust contact
+    public ContactResponse ChangeContact(Guid id, AdjustContactRequest request)
+    {
+        return service.Adjust(id, request.Name, request.PhoneNumber, request.Email);
+    }
 }

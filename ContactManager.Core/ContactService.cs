@@ -38,10 +38,11 @@ public class ContactService
         }
         return c;
     }
-    public void Adjust(Guid id, string name, string phoneNumber, string email)
+    public ContactResponse Adjust(Guid id, string name, string phoneNumber, string email)
     {
         var c = SearchContactById(id);
         c.Adjust(name, phoneNumber, email);
+        return new ContactResponse { Id = c.Id, Name = c.Name, PhoneNumber = c.PhoneNumber, Email = c.Email };
     }
     public void RemoveContact(Guid id)
     {
